@@ -71,8 +71,12 @@ const ShopAll = () => {
             whileHover={{ y: -6, scale: 1.02 }}
             className="w-full sm:w-[48%] md:w-[24%] flex flex-col items-center transition-transform duration-300"
           >
-            <div className="w-full bg-[#F4F3F4] border border-[#E8E8E8] relative">
-              <img src={p.img} alt={p.title} className="w-full h-auto object-cover" />
+            <div className="w-full h-[350px] bg-[#F4F3F4] border border-[#E8E8E8] relative overflow-hidden flex items-center justify-center">
+              <img
+                src={p.img}
+                alt={p.title}
+                className="w-full h-full object-contain"
+              />
               <span className="absolute top-2 left-2 bg-[#F6623E] text-white text-xs uppercase px-2 py-1">
                 {p.badge}
               </span>

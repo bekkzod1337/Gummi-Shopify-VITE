@@ -30,7 +30,7 @@ const Footer = () => {
         <motion.img
           src="/hero/bg1.png"
           alt="footer top"
-          className="w-full h-full object-cover rotate-180"
+          className="w-full h-full object-cover"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}

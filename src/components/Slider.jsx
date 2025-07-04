@@ -32,7 +32,7 @@ const Slider = () => {
         transition={{ delay: 1, duration: 1 }}
         src="/hero/bg2.png"
         alt="Bottom Overlay"
-        className="absolute bottom-0 left-0 w-[1982px] h-[129px] -ml-[66px] z-10"
+        className="absolute bottom-0 left-0 w-[1982px] h-[129px]  z-10"
       />
 
       {/* Text Content */}
