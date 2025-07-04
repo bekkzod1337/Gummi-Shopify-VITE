@@ -20,8 +20,9 @@ export default function NewArrivalsSection() {
   return (
     <motion.section
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+whileInView="visible"
+viewport={{ once: true }}
+
       variants={containerVariants}
       className="w-full bg-[#FFFFFF] py-16 px-4 text-black"
     >

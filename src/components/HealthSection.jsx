@@ -6,23 +6,35 @@ import { motion } from "framer-motion";
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
+
+const imageVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: 0.4 + i * 0.2, duration: 0.6 },
+  }),
+};
+
 
 const HealthSection = () => {
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
       className="relative w-full bg-[#FFF8F6] py-20 overflow-hidden"
     >
@@ -47,26 +59,17 @@ const HealthSection = () => {
         </motion.div>
 
         {/* Image Content */}
-        <motion.div
-          variants={itemVariants}
-          className="relative flex flex-col gap-4 z-10"
-        >
-          <motion.img
-            src="/health/1.png"
-            alt="Health 1"
-            className="w-[320px] h-[250px] object-cover rounded-md shadow-md"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          />
-          <motion.img
-            src="/health/2.png"
-            alt="Health 2"
-            className="w-[320px] h-[250px] object-cover rounded-md shadow-md"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          />
+        <motion.div className="relative flex flex-col gap-4 z-10">
+          {[1, 2].map((n, i) => (
+            <motion.img
+              key={i}
+              custom={i}
+              variants={imageVariants}
+              src={`/health/${n}.png`}
+              alt={`Health ${n}`}
+              className="w-[320px] h-[250px] object-cover rounded-md shadow-md"
+            />
+          ))}
         </motion.div>
       </div>
 

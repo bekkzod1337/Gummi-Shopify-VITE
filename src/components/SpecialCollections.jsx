@@ -28,8 +28,8 @@ const cardVariants = {
     y: 0,
     scale: 1,
     transition: {
-      delay: i * 0.15,
-      duration: 0.5,
+      delay: i * 0.2,
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
@@ -41,11 +41,11 @@ const SpecialCollections = () => {
       <div className="max-w-[1680px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product, i) => (
           <motion.div
-            key={i}
-            custom={i}
+            key={product.title} // i emas, title ni key qilib ber
+            custom={i} // i ni custom sifatida uzatamiz
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
             whileHover={{ y: -6, scale: 1.02 }}
             className="border border-[#E8E8E8] bg-[#F4F3F4] p-4 flex flex-col items-center justify-between h-[456px] transition-all"
